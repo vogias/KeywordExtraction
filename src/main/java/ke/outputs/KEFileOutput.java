@@ -1,6 +1,5 @@
 package ke.outputs;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -28,10 +27,8 @@ public class KEFileOutput implements KEOutput {
 			String targetFilePathString = iterator.next();
 
 			try {
-				logger.info("Storing record to file:" + targetFilePathString + File.separatorChar
-						+ metadata.getRecordName());
-				OaiUtils.writeStringToFileInEncodingUTF8(xmlString,
-						targetFilePathString + File.separatorChar + metadata.getRecordName());
+				logger.info("Storing record to file:" + targetFilePathString + metadata.getRecordName());
+				OaiUtils.writeStringToFileInEncodingUTF8(xmlString, targetFilePathString + metadata.getRecordName());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				logger.error(e.getMessage());
